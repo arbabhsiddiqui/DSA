@@ -15,9 +15,10 @@ class Queue {
   }
 
   remove() {
-    for (let index = 0; index >= this.arr.length; index++) {
+    for (let index = 0; index < this.arr.length; index++) {
       this.arr[index] = this.arr[index + 1];
     }
+    this.arr.pop();
   }
 
   removeWithShift() {
