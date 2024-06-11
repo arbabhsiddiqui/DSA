@@ -37,3 +37,33 @@ QueueCalling.add(8);
 console.log(QueueCalling.show());
 QueueCalling.remove();
 console.log(QueueCalling.show());
+
+class Queue2 {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(value) {
+    this.queue.push(value);
+  }
+
+  show() {
+    let printQueueValue = '';
+    this.queue.map((item) => (printQueueValue += item));
+    return printQueueValue;
+  }
+
+  dequeue() {
+    return this.queue.shift();
+  }
+}
+
+const Queue2Calling = new Queue2();
+
+Queue2Calling.enqueue(4);
+Queue2Calling.enqueue(7);
+Queue2Calling.enqueue(8);
+
+console.log(Queue2Calling.show());
+Queue2Calling.dequeue();
+console.log(Queue2Calling.show());
