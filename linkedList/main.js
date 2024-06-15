@@ -111,8 +111,37 @@ class LinkedList {
     // last = secondLast; // thank @Ranjan for pointing this out
   }
 
-  showHead() {
-    console.debug('final value of head', this.head);
+  printLinkedList() {
+    let current = this.head;
+    let printArray = [];
+
+    while (current) {
+      printArray.push(current.value);
+      current = current.next;
+    }
+
+    return printArray;
+  }
+
+  reverseLinkedList() {
+    let current = this.head;
+    let prev = null;
+    let next = null;
+    let i = 0;
+    while (current) {
+      console.log('----- ', i);
+      console.log('next', next);
+      console.log('prev', prev);
+      console.log('current', current);
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+      console.log('----- end ', i);
+      i++;
+    }
+
+    this.head = prev;
   }
 }
 
@@ -122,9 +151,10 @@ usingLinkedList.addAtLast(4);
 usingLinkedList.addAtLast(55);
 usingLinkedList.addAtLast(66);
 usingLinkedList.addAtLast(78);
+console.log(usingLinkedList.printLinkedList());
+usingLinkedList.reverseLinkedList();
+console.log(usingLinkedList.printLinkedList());
 
 // usingLinkedList.insertAfter(usingLinkedList.head.next, 44);
 // usingLinkedList.removeFromHead();
 // usingLinkedList.removeFromLast();
-usingLinkedList.removeNodeOfGivenValue(4);
-usingLinkedList.showHead();
